@@ -39,20 +39,8 @@ dependencies {
     implementation 'javax.xml.bind:jaxb-api:2.3.1'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.postgresql:postgresql'
-    runtimeOnly 'com.mysql:mysql-connector-j'
-    //모니터링
-    implementation 'io.micrometer:micrometer-registry-prometheus'
-
-
 }
 
 tasks.named('test') {
     useJUnitPlatform()
 }
-
-task copyJarToBin(type: Copy) {
-    from "build/libs/springbootdeveloper-0.0.1-SNAPSHOT.jar"
-    into "xinfra/docker/"
-}
-
-build.finalizedBy copyJarToBin
